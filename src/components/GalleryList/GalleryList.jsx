@@ -1,10 +1,12 @@
-function GalleryList({list}){
+import GalleryItem from "../GalleryItem/GalleryItem"
+
+function GalleryList({list, likeClick}){
     return(
-    <>
-    {list.map((picture) => {
-    return (<li key = {picture.id}> <img src={ picture.path }/> <button>LIKE</button></li>)
+    <div id = "gallery">
+    {list.map(item => {
+        return (<GalleryItem key={item.id} item={item} likeClick={likeClick} />)
     })}
-    </>
+    </div>
     )
 }
 

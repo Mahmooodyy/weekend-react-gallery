@@ -23,12 +23,24 @@ function App() {
           });
   };
 
+  const likeClick = (id) => {
+  axios
+  .put(`/gallery/like/${id}`)
+  .then((response) => {
+      console.log(response);
+      getGallery();
+  })
+  .catch((error) => {
+      alert('Error with updating', error);
+  });
+}
+
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        <GalleryList list = {galleryList} />
+        <GalleryList list = {galleryList} likeClick = {likeClick}/>
       </div>
     );
 }
